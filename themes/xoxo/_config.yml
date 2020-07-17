@@ -7,11 +7,11 @@ menu:
   home: /
   archives: /archives
   tags: /tags
-  categories: /categories
+  #categories: /categories
   search: /search
   about: /about
   #rss: /atom.xml
-  
+
 # Miscelaneous
 favicon: /logo.png
 
