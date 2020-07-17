@@ -11,8 +11,7 @@ menu:
   search: /search
   about: /about
   #rss: /atom.xml
-
-
+  
 # Miscelaneous
 favicon: /logo.png
 
