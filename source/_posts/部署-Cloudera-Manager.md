@@ -2,7 +2,6 @@
 title: 部署 Cloudera Manager
 tags:
   - 'CDH'
-  - 'Cloudera Manager'
 date: 2020-07-17 15:39:09
 ---
 
