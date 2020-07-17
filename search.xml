@@ -24,4 +24,50 @@
         <tag>test</tag>
       </tags>
   </entry>
+  <entry>
+    <title>部署 Cloudera Manager</title>
+    <url>/2020/07/17/%E9%83%A8%E7%BD%B2-Cloudera-Manager/</url>
+    <content><![CDATA[<h3 id="教程"><a href="#教程" class="headerlink" title="教程"></a>教程</h3><p><a href="https://docs.cloudera.com/documentation/enterprise/6/6.3/topics/configure_cm_repo.html" target="_blank" rel="noopener">Cloudera Manager 官网安装步骤</a></p>
+<p><a href="https://docs.cloudera.com/documentation/enterprise/6/release-notes/topics/rg_cm_6_version_download.html#concept_dcs_x11_3jb" target="_blank" rel="noopener">Cloudera Manager 官网下载网页</a></p>
+<p><a href="https://archive.cloudera.com/cm6/6.3.1/redhat7/yum/" target="_blank" rel="noopener">Cloudera Manager 6.3.1 yum源</a></p>
+<p><a href="https://archive.cloudera.com/cm6/6.3.1/repo-as-tarball/" target="_blank" rel="noopener">Cloudera Manager 6.3.1 离线包</a></p>
+<p><a href="https://docs.cloudera.com/documentation/enterprise/6/release-notes/topics/rg_cdh_63_download.html#cdh_632-download" target="_blank" rel="noopener">CDH 官网下载网页</a></p>
+<p><a href="https://archive.cloudera.com/cdh6/6.3.2/redhat7/yum/" target="_blank" rel="noopener">CDH 6.3.2 yum源</a></p>
+<p><a href="https://archive.cloudera.com/cdh6/6.3.2/parcels/" target="_blank" rel="noopener">CDH 6.3.2 离线包</a></p>
+<p><a href="https://blog.csdn.net/cloudmq/article/details/100876717" target="_blank" rel="noopener">离线部署参考</a></p>
+<h3 id="离线包"><a href="#离线包" class="headerlink" title="离线包"></a>离线包</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">vim &#x2F;etc&#x2F;yum.repos.d&#x2F;cloudera-manager.repo </span><br><span class="line"></span><br><span class="line">[cloudera-manager]</span><br><span class="line">name&#x3D;Cloudera Manager</span><br><span class="line">baseurl&#x3D;https:&#x2F;&#x2F;wmqe-yum-repository.oss-cn-zhangjiakou-internal.aliyuncs.com&#x2F;cm6&#x2F;6.3.1&#x2F;</span><br><span class="line">gpgkey &#x3D;https:&#x2F;&#x2F;wmqe-yum-repository.oss-cn-zhangjiakou-internal.aliyuncs.com&#x2F;cm6&#x2F;6.3.1&#x2F;RPM-GPG-KEY-cloudera</span><br><span class="line">gpgcheck&#x3D;0</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="驱动"><a href="#驱动" class="headerlink" title="驱动"></a>驱动</h3><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">wget https://dev.mysql.com/get/Downloads/Connector-J/mysql-connector-java-5.1.46.tar.gz</span><br><span class="line">tar zxvf mysql-connector-java-5.1.46.tar.gz</span><br><span class="line">mkdir -p /usr/share/java/</span><br><span class="line">cd mysql-connector-java-5.1.46</span><br><span class="line">cp mysql-connector-java-5.1.46-bin.jar /usr/share/java/mysql-connector-java.jar</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="创建数据库"><a href="#创建数据库" class="headerlink" title="创建数据库"></a>创建数据库</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># scm</span><br><span class="line">CREATE DATABASE scm DEFAULT CHARACTER SET utf8 DEFAULT COLLATE utf8_general_ci;</span><br><span class="line">GRANT ALL ON scm.* TO &#39;scm&#39;@&#39;%&#39; IDENTIFIED BY &#39;wmq20151118&#39;;</span><br><span class="line"></span><br><span class="line"># amon</span><br><span class="line">CREATE DATABASE amon DEFAULT CHARACTER SET utf8 DEFAULT COLLATE utf8_general_ci;</span><br><span class="line">GRANT ALL ON amon.* TO &#39;amon&#39;@&#39;%&#39; IDENTIFIED BY &#39;wmq20151118&#39;;</span><br><span class="line"></span><br><span class="line"># rman</span><br><span class="line">CREATE DATABASE rman DEFAULT CHARACTER SET utf8 DEFAULT COLLATE utf8_general_ci;</span><br><span class="line">GRANT ALL ON rman.* TO &#39;rman&#39;@&#39;%&#39; IDENTIFIED BY &#39;wmq20151118&#39;;</span><br><span class="line"></span><br><span class="line"># hue</span><br><span class="line">CREATE DATABASE hue DEFAULT CHARACTER SET utf8 DEFAULT COLLATE utf8_general_ci; </span><br><span class="line">GRANT ALL ON hue.* TO &#39;hue&#39;@&#39;%&#39; IDENTIFIED BY &#39;wmq20151118&#39;;</span><br><span class="line"></span><br><span class="line"># hive</span><br><span class="line">CREATE DATABASE metastore DEFAULT CHARACTER SET utf8 DEFAULT COLLATE utf8_general_ci;</span><br><span class="line">GRANT ALL ON metastore.* TO &#39;hive&#39;@&#39;%&#39; IDENTIFIED BY &#39;wmq20151118&#39;;</span><br><span class="line"></span><br><span class="line"># sentry</span><br><span class="line">CREATE DATABASE sentry DEFAULT CHARACTER SET utf8 DEFAULT COLLATE utf8_general_ci;   </span><br><span class="line">GRANT ALL ON sentry.* TO &#39;sentry&#39;@&#39;%&#39; IDENTIFIED BY &#39;wmq20151118&#39;;</span><br><span class="line"></span><br><span class="line"># nav</span><br><span class="line">CREATE DATABASE nav DEFAULT CHARACTER SET utf8 DEFAULT COLLATE utf8_general_ci;      </span><br><span class="line">GRANT ALL ON nav.* TO &#39;nav&#39;@&#39;%&#39; IDENTIFIED BY &#39;wmq20151118&#39;;</span><br><span class="line"></span><br><span class="line"># navms</span><br><span class="line">CREATE DATABASE navms DEFAULT CHARACTER SET utf8 DEFAULT COLLATE utf8_general_ci;</span><br><span class="line">GRANT ALL ON navms.* TO &#39;navms&#39;@&#39;%&#39; IDENTIFIED BY &#39;wmq20151118&#39;;</span><br><span class="line"></span><br><span class="line"># oozie</span><br><span class="line">CREATE DATABASE oozie DEFAULT CHARACTER SET utf8 DEFAULT COLLATE utf8_general_ci;</span><br><span class="line">GRANT ALL ON oozie.* TO &#39;oozie&#39;@&#39;%&#39; IDENTIFIED BY &#39;wmq20151118&#39;;</span><br><span class="line"></span><br><span class="line"># flush</span><br><span class="line">FLUSH PRIVILEGES;</span><br></pre></td></tr></table></figure>
+
+<p>执行脚本</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">/opt/cloudera/cm/schema/scm_prepare_database.sh mysql scm scm</span><br></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 下载allkeys.asc文件，存在仓库</span></span><br><span class="line">https://archive.cloudera.com/cm6/6.3.1/allkeys.asc</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="启动"><a href="#启动" class="headerlink" title="启动"></a>启动</h3><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">systemctl start cloudera-scm-server</span><br></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">tail -f /var/log/cloudera-scm-server/cloudera-scm-server.log</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="Oozie-ExtJS-library"><a href="#Oozie-ExtJS-library" class="headerlink" title="Oozie ExtJS library"></a>Oozie ExtJS library</h3><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 安装oozie主机上执行</span></span><br><span class="line">cd /opt/cloudera/parcels/CDH/lib/oozie/libext/</span><br><span class="line">wget http://archive.cloudera.com/gplextras/misc/ext-2.2.zip</span><br><span class="line">unzip ext-2.2.zip</span><br><span class="line">chown oozie:oozie -R ext-2.2</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <tags>
+        <tag>CDH</tag>
+        <tag>Cloudera Manager</tag>
+      </tags>
+  </entry>
 </search>
