@@ -27,7 +27,7 @@ date: 2020-07-17 15:39:09
 
 ### 离线包
 
-```
+```bash
 vim /etc/yum.repos.d/cloudera-manager.repo 
 
 [cloudera-manager]

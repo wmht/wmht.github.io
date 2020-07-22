@@ -8,8 +8,8 @@ menu:
   archives: /archives
   tags: /tags
   #categories: /categories
-  search: /search
   about: /about
+  search: /search
   #rss: /atom.xml
 
 # Miscelaneous
