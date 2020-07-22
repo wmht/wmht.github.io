@@ -1,7 +1,11 @@
 ---
 title: 部署 Cloudera Manager
 tags:
-  - 'CDH'
+  - CDH
+abbrlink: 49009
+categories:
+  - deploy
+  - CDH
 date: 2020-07-17 15:39:09
 ---
 
