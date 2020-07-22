@@ -7,7 +7,6 @@ type: about
 关于我：
 ---------------------------------------
 - name：wmht
-- github：[https://github.com/wmht](https://github.com/wmht)
-- qq：1933306137  
+- github：[https://github.com/wmht](https://github.com/wmht) 
 
-有问题请QQ留言。
+有问题请github留言。
