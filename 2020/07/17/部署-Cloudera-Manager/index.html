@@ -54,11 +54,11 @@
           
       
           
-            <li class="pure-menu-item"><a href="/search" class="pure-menu-link">搜索</a></li>
+            <li class="pure-menu-item"><a href="/about" class="pure-menu-link">关于</a></li>
           
       
           
-            <li class="pure-menu-item"><a href="/about" class="pure-menu-link">关于</a></li>
+            <li class="pure-menu-item"><a href="/search" class="pure-menu-link">搜索</a></li>
           
       
   </ul>
@@ -104,7 +104,7 @@
 <p><a href="https://archive.cloudera.com/cdh6/6.3.2/redhat7/yum/" target="_blank" rel="noopener">CDH 6.3.2 yum源</a></p>
 <p><a href="https://archive.cloudera.com/cdh6/6.3.2/parcels/" target="_blank" rel="noopener">CDH 6.3.2 离线包</a></p>
 <p><a href="https://blog.csdn.net/cloudmq/article/details/100876717" target="_blank" rel="noopener">离线部署参考</a></p>
-<h3 id="离线包"><a href="#离线包" class="headerlink" title="离线包"></a>离线包</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">vim &#x2F;etc&#x2F;yum.repos.d&#x2F;cloudera-manager.repo </span><br><span class="line"></span><br><span class="line">[cloudera-manager]</span><br><span class="line">name&#x3D;Cloudera Manager</span><br><span class="line">baseurl&#x3D;https:&#x2F;&#x2F;wmqe-yum-repository.oss-cn-zhangjiakou-internal.aliyuncs.com&#x2F;cm6&#x2F;6.3.1&#x2F;</span><br><span class="line">gpgkey &#x3D;https:&#x2F;&#x2F;wmqe-yum-repository.oss-cn-zhangjiakou-internal.aliyuncs.com&#x2F;cm6&#x2F;6.3.1&#x2F;RPM-GPG-KEY-cloudera</span><br><span class="line">gpgcheck&#x3D;0</span><br></pre></td></tr></table></figure>
+<h3 id="离线包"><a href="#离线包" class="headerlink" title="离线包"></a>离线包</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/yum.repos.d/cloudera-manager.repo </span><br><span class="line"></span><br><span class="line">[cloudera-manager]</span><br><span class="line">name=Cloudera Manager</span><br><span class="line">baseurl=https://wmqe-yum-repository.oss-cn-zhangjiakou-internal.aliyuncs.com/cm6/6.3.1/</span><br><span class="line">gpgkey =https://wmqe-yum-repository.oss-cn-zhangjiakou-internal.aliyuncs.com/cm6/6.3.1/RPM-GPG-KEY-cloudera</span><br><span class="line">gpgcheck=0</span><br></pre></td></tr></table></figure>
 
 
 
