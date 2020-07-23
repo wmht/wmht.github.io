@@ -1,5 +1,5 @@
 ---
-title: 部署 Cloudera Manager
+title: Deploy Cloudera Manager
 tags:
   - CDH
 abbrlink: 49009
