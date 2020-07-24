@@ -9,6 +9,7 @@ menu:
   tags: /tags
   categories: /categories
   about: /about
+  read: /read
   search: /search
   #rss: /atom.xml
 

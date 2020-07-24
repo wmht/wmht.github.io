@@ -6,7 +6,5 @@ type: about
 
 关于我：
 ---------------------------------------
-- name：wmht
-- github：[https://github.com/wmht](https://github.com/wmht) 
-
-有问题请github留言。
+- Name：wmht
+- GitHub：[https://github.com/wmht](https://github.com/wmht) 
