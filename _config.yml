@@ -3,7 +3,7 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: '呵笔寻诗'
+title: 'wmht'
 subtitle: ''
 description: ''
 keywords:
@@ -109,7 +109,8 @@ ignore:
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
 #theme: landscape
-theme: xoxo
+#theme: xoxo
+theme: vexo
 
 
 # Deployment
