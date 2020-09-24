@@ -110,7 +110,8 @@ ignore:
 ## Themes: https://hexo.io/themes/
 #theme: landscape
 #theme: xoxo
-theme: vexo
+#theme: vexo
+theme: pure
 
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
