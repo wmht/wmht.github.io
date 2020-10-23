@@ -2,7 +2,9 @@
 title: 部署 Jumpserver 1.5.0
 tags:
   - jumpserver
-categories: []
+categories:
+  - jumpserver
+abbrlink: 13359
 date: 2020-10-23 16:37:14
 ---
 
@@ -169,11 +171,11 @@ cat /opt/jumpserver/config.yml
 # SECURITY WARNING: keep the secret key used in production secret!
 # 加密秘钥 生产环境中请修改为随机字符串，请勿外泄, 可使用命令生成 
 # $ cat /dev/urandom | tr -dc A-Za-z0-9 | head -c 49;echo
-SECRET_KEY: c1NVKkBQonam9CqX8AWqLiCt4PMGmJTr3DYFGePG0Nz3QD9uY4
+SECRET_KEY: c1NVKkBQonnam9CqX8AGmJTr3DYFnam9CqX8A
 
 # SECURITY WARNING: keep the bootstrap token used in production secret!
 # 预共享Token coco和guacamole用来注册服务账号，不在使用原来的注册接受机制
-BOOTSTRAP_TOKEN: nfmBa3WkbQ8leRRb
+BOOTSTRAP_TOKEN: nam9CqX8A
 
 # Development env open this, when error occur display the full process track, Production disable it
 # DEBUG 模式 开启DEBUG后遇到错误时可以看到更多日志
@@ -303,7 +305,7 @@ CORE_HOST: http://127.0.0.1:8080
 
 # Bootstrap Token, 预共享秘钥, 用来注册coco使用的service account和terminal
 # 请和jumpserver 配置文件中保持一致，注册完成后可以删除
-BOOTSTRAP_TOKEN: nfmBa3WkbQ8leRRb
+BOOTSTRAP_TOKEN: nam9CqX8A
 
 # 启动时绑定的ip, 默认 0.0.0.0
 # BIND_HOST: 0.0.0.0
@@ -436,7 +438,7 @@ vim /etc/nginx/conf.d/jumpserver.conf
 server {
     # http自动跳转到https
     listen       80;
-    server_name jump.wmqhealth.com;    
+    server_name jump.wmht.com;    
     rewrite ^ https://$http_host$request_uri? permanent;       
 }
 
@@ -444,10 +446,10 @@ server {
     # 代理端口, 以后将通过此端口进行访问, 不再通过8080端口
     listen 443 ssl;
 
-    ssl_certificate ssl/jump.wmqhealth.com.pem;
-    ssl_certificate_key ssl/jump.wmqhealth.com.key;
+    ssl_certificate ssl/jump.wmht.com.pem;
+    ssl_certificate_key ssl/jump.wmht.com.key;
 
-    server_name jump.wmqhealth.com;  # 修改成你的域名或者注释掉
+    server_name jump.wmht.com;  # 修改成你的域名或者注释掉
 
     client_max_body_size 100m;  # 录像及文件上传大小限制
 
