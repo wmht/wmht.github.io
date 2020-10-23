@@ -1,7 +1,8 @@
 ---
 title: 部署 Jumpserver 1.5.0
 tags:
-  - 'jumpserver'
+  - jumpserver
+categories: []
 date: 2020-10-23 16:37:14
 ---
 
