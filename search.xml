@@ -204,4 +204,17 @@
         <tag>jumpserver</tag>
       </tags>
   </entry>
+  <entry>
+    <title>Rancher 单节点 docker 运行</title>
+    <url>/10253.html</url>
+    <content><![CDATA[<h3 id="Rancher-单节点-docker-运行"><a href="#Rancher-单节点-docker-运行" class="headerlink" title="Rancher 单节点 docker 运行"></a>Rancher 单节点 docker 运行</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">docker run -d --privileged -p 80:80 -p 443:443 rancher/rancher</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>rancher</category>
+      </categories>
+      <tags>
+        <tag>rancher</tag>
+      </tags>
+  </entry>
 </search>
